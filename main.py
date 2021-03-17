@@ -1,7 +1,7 @@
 import csv
 import json
 
-class Conexao:
+class Conversor:
     # Método construtor.
     def __init__(self):
         # Abre o arquivo JSON.
@@ -10,7 +10,7 @@ class Conexao:
                 self.orders = json.load(f)
             self.Retorna_CSV()
         except Exception as erro:
-            print("Erro: {}".format(erro))
+            print("Problema ao interpretar o arquivo JSON: {}".format(erro))
             
     # Metodo que retorna o CSV.
     def Retorna_CSV(self):
@@ -31,4 +31,4 @@ class Conexao:
                 # Escreve em cada linha.
                 escrever.writerow({'ID': id_order, 'Name': name, 'Description': description, 'Quantity': quantity, 'Value': value})
 
-usuario = Conexao()
+usuario = Conversor()
